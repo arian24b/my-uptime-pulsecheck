@@ -1,4 +1,4 @@
-# UDNS UTM: uptime monitors, converted from the Upptime config of arian24b/utm.
+# UDNS UTM: uptime monitors, converted from the old arian24b/utm config.
 # Docs for every key: https://github.com/arian24b/pulsecheck/wiki/YAML-Reference
 # ${NAME} is filled from a GitHub secret of the same name (Settings → Secrets and variables → Actions).
 
@@ -10,12 +10,12 @@ notify:
   events: [down, up, degraded, ssl_warn]
 
 defaults:
-  max_response_ms: 10000   # Upptime "delay: 10000": slower than 10 s counts as down
-  down_after: 2            # alert after 2 failed checks in a row (Upptime alerted on the first)
+  max_response_ms: 10000   # old "delay: 10000": slower than 10 s counts as down
+  down_after: 2            # alert after 2 failed checks in a row (the old setup alerted on the first)
   interval: 5              # minutes between checks (the workflow runs every 5)
   ssl_warn_days: 14        # warn 14 days before a certificate expires
 
-# Entries starting with "# -" are the ones that were commented out in the Upptime file: remove the "# " to enable them.
+# Entries starting with "# -" are the ones that were commented out in the old file: remove the "# " to enable them.
 sites:
 
   # --- ablmoasherati.ir
