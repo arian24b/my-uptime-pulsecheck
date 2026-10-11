@@ -93,6 +93,7 @@ sites:
   # - {name: gitsave.s2dio.ir, url: https://gitsave.s2dio.ir, tags: [s2dio.ir]}
   # - {name: moni.s2dio.ir, url: https://moni.s2dio.ir, tags: [s2dio.ir]}
   - {name: net.s2dio.ir, url: https://net.s2dio.ir, tags: [s2dio.ir]}
+  - {name: og.s2dio.ir, url: https://og.s2dio.ir, tags: [s2dio.ir]}
   # - {name: pocketbase.s2dio.ir, url: https://pocketbase.s2dio.ir, tags: [s2dio.ir]}
   # - {name: secret.s2dio.ir, url: https://secret.s2dio.ir, tags: [s2dio.ir]}
   - {name: server.s2dio.ir, url: https://server.s2dio.ir, tags: [s2dio.ir]}
