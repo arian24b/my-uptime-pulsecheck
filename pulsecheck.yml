@@ -1,4 +1,5 @@
-# Your monitors. Docs for every key: https://github.com/arian24b/pulsecheck/wiki/YAML-Reference
+# UDNS UTM: uptime monitors, converted from the Upptime config of arian24b/utm.
+# Docs for every key: https://github.com/arian24b/pulsecheck/wiki/YAML-Reference
 # ${NAME} is filled from a GitHub secret of the same name (Settings → Secrets and variables → Actions).
 
 notify:
@@ -6,20 +7,98 @@ notify:
     - telegram://${TG_TOKEN}@telegram?chats=${TG_CHAT}
     # other services: https://github.com/arian24b/pulsecheck/wiki/Notifications
     # - ntfy://ntfy.sh/${NTFY_TOPIC}
-    # - discord://${DISCORD_TOKEN}@${DISCORD_ID}
   events: [down, up, degraded, ssl_warn]
 
 defaults:
-  timeout: 10
-  down_after: 2      # alert after 2 failed checks in a row
-  interval: 5        # minutes between checks (the workflow runs every 5)
+  max_response_ms: 10000   # Upptime "delay: 10000": slower than 10 s counts as down
+  down_after: 2            # alert after 2 failed checks in a row (Upptime alerted on the first)
+  interval: 5              # minutes between checks (the workflow runs every 5)
+  ssl_warn_days: 14        # warn 14 days before a certificate expires
 
+# Entries starting with "# -" are the ones that were commented out in the Upptime file: remove the "# " to enable them.
 sites:
-  - name: my-site
-    url: https://example.com        # ← change me
-    ssl_warn_days: 14               # warn 14 days before the certificate expires
-  # - name: api
-  #   url: https://api.example.com/health
-  #   expected_status: [200]
-  #   max_response_ms: 3000
-  # - {name: database, type: tcp, host: db.example.com, port: 5432}
+
+  # --- ablmoasherati.ir
+  # - {name: ablmoasherati.ir, url: https://ablmoasherati.ir, tags: [ablmoasherati.ir]}
+  # - {name: www.ablmoasherati.ir, url: https://www.ablmoasherati.ir, tags: [ablmoasherati.ir]}
+
+  # --- ar14n24b.ir
+  # - {name: ar14n24b.ir, url: https://ar14n24b.ir, tags: [ar14n24b.ir]}
+
+  # --- arian24b.ir
+  # - {name: arian24b.ir, url: https://arian24b.ir, tags: [arian24b.ir]}
+
+  # --- arianameson.ir
+  # - {name: arianameson.ir, url: https://arianameson.ir, tags: [arianameson.ir]}
+  # - {name: www.arianameson.ir, url: https://www.arianameson.ir, tags: [arianameson.ir]}
+
+  # --- ariandev.ir
+  # - {name: ariandev.ir, url: https://ariandev.ir, tags: [ariandev.ir]}
+  # - {name: www.ariandev.ir, url: https://www.ariandev.ir, tags: [ariandev.ir]}
+  # - {name: mail.ariandev.ir, url: https://mail.ariandev.ir, tags: [ariandev.ir]}
+
+  # --- arianomrani.ir
+  - {name: arianomrani.ir, url: https://arianomrani.ir, tags: [arianomrani.ir]}
+
+  # --- beconnect.ir
+  # - {name: beconnect.ir, url: https://beconnect.ir, tags: [beconnect.ir]}
+
+  # --- devdon.ir
+  - {name: devdon.ir, url: https://devdon.ir, tags: [devdon.ir], expected_status: [200, 301]}
+  - {name: dl.devdon.ir, url: https://dl.devdon.ir, tags: [devdon.ir]}
+
+  # --- getinfra.ir
+  # - {name: getinfra.ir, url: https://getinfra.ir, tags: [getinfra.ir]}
+  # - {name: admin.getinfra.ir, url: https://admin.getinfra.ir, tags: [getinfra.ir]}
+  # - {name: panel.getinfra.ir, url: https://panel.getinfra.ir, tags: [getinfra.ir]}
+
+  # --- getmirror.ir
+  # - {name: getmirror.ir, url: https://getmirror.ir, tags: [getmirror.ir]}
+
+  # --- hamgym.ir
+  # - {name: hamgym.ir, url: https://hamgym.ir, tags: [hamgym.ir]}
+
+  # --- insightsite.info
+  # - {name: insightsite.info, url: https://insightsite.info, tags: [insightsite.info]}
+  # - {name: imap.insightsite.info, url: https://imap.insightsite.info, tags: [insightsite.info]}
+  # - {name: keila.insightsite.info, url: https://keila.insightsite.info, tags: [insightsite.info]}
+  # - {name: pop3.insightsite.info, url: https://pop3.insightsite.info, tags: [insightsite.info]}
+  # - {name: smtp.insightsite.info, url: https://smtp.insightsite.info, tags: [insightsite.info]}
+
+  # --- insightsite.ir
+  # - {name: insightsite.ir, url: https://insightsite.ir, tags: [insightsite.ir]}
+
+  # --- isgood.site
+  - {name: isgood.site, url: https://isgood.site, tags: [isgood.site]}
+  - {name: a.isgood.site, url: https://a.isgood.site, tags: [isgood.site]}
+  - {name: v.isgood.site, url: https://v.isgood.site, tags: [isgood.site]}
+
+  # --- lambd.ir
+  # - {name: lambd.ir, url: https://lambd.ir, tags: [lambd.ir]}
+
+  # --- ourgym.ir
+  # - {name: ourgym.ir, url: https://ourgym.ir, tags: [ourgym.ir]}
+
+  # --- s2dio.ir
+  - {name: s2dio.ir, url: https://s2dio.ir, tags: [s2dio.ir]}
+  - {name: soha.s2dio.ir, url: https://soha.s2dio.ir, tags: [s2dio.ir]}
+  # - {name: api-billing-lago.s2dio.ir, url: https://api-billing-lago.s2dio.ir, tags: [s2dio.ir]}
+  - {name: api.s2dio.ir, url: https://api.s2dio.ir, tags: [s2dio.ir], expected_status: [200, 404], max_response_ms: 5000}
+  # - {name: backup.s2dio.ir, url: https://backup.s2dio.ir, tags: [s2dio.ir]}
+  # - {name: billing-lago.s2dio.ir, url: https://billing-lago.s2dio.ir, tags: [s2dio.ir]}
+  - {name: dash.s2dio.ir, url: https://dash.s2dio.ir, tags: [s2dio.ir]}
+  - {name: dl.s2dio.ir, url: https://dl.s2dio.ir, tags: [s2dio.ir]}
+  # - {name: edge.s2dio.ir, url: https://edge.s2dio.ir, tags: [s2dio.ir]}
+  # - {name: financialfreedom.s2dio.ir, url: https://financialfreedom.s2dio.ir, tags: [s2dio.ir]}
+  # - {name: gitsave.s2dio.ir, url: https://gitsave.s2dio.ir, tags: [s2dio.ir]}
+  # - {name: moni.s2dio.ir, url: https://moni.s2dio.ir, tags: [s2dio.ir]}
+  - {name: net.s2dio.ir, url: https://net.s2dio.ir, tags: [s2dio.ir]}
+  # - {name: pocketbase.s2dio.ir, url: https://pocketbase.s2dio.ir, tags: [s2dio.ir]}
+  # - {name: secret.s2dio.ir, url: https://secret.s2dio.ir, tags: [s2dio.ir]}
+  - {name: server.s2dio.ir, url: https://server.s2dio.ir, tags: [s2dio.ir]}
+  # - {name: twenty.s2dio.ir, url: https://twenty.s2dio.ir, tags: [s2dio.ir]}
+  - {name: v.s2dio.ir, url: https://v.s2dio.ir, tags: [s2dio.ir]}
+
+  # --- togym.ir
+  # - {name: togym.ir, url: https://togym.ir, tags: [togym.ir]}
+  # - {name: api.togym.ir, url: https://api.togym.ir, tags: [togym.ir]}
